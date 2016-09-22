@@ -1,4 +1,4 @@
-
+/*
 #include <tchar.h>
 #include <Windows.h>
 #include <iostream>
@@ -441,3 +441,6 @@ void main() {
 
 
 }
+
+
+*/

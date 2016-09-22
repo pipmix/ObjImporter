@@ -1,0 +1,6 @@
+*.obj
+x64/
+debug/
+release/
+ObjImporter/Exporters.VC.VC.opendb
+ObjImporter/Exporters.VC.db
