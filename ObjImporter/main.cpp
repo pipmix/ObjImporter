@@ -37,12 +37,12 @@ int main() {
 
 	wstring directory = GetProgramFolder();
 	GetFileNamesFromAFolder(directory);
-	GetFileNamesOfTypeWithExt(L"obj");
-	//RectConvert(directory);
+	GetFileNamesOfTypeWithExt(L"col");
+	RectConvert(directory);
 
-	PrintVector(goodNames);
+	//PrintVector(goodNames);
 
-	for (auto s : goodNames)wcout << StripExtension(s) << endl;
+	//for (auto s : goodNames)wcout << StripExtension(s) << endl;
 
 
 	wstring inpu;

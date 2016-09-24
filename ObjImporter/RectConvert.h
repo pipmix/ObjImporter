@@ -21,17 +21,14 @@ extern vector<wstring> goodNames;
 
 void RectConvert(wstring dir) {
 
-	wstring exportExtension = L"rect";
+	wstring exportExtension = L".rect";
 
 	for (auto s : goodNames){
 	
-		//	importFileName = goodNames[i];
 		wstring fullImportName = dir + s;
-		wstring fullExportName = dir + exportExtension;
+		
+		
 
-		wchar_t curChar;
-
-		string mapName;
 		int numOfRects;
 		float maxLeft, maxTop, maxRight, maxBottom;
 
@@ -40,9 +37,9 @@ void RectConvert(wstring dir) {
 		vector<XMFLOAT2> uv;
 		vector<XMFLOAT3> normal;
 
-
+		wchar_t curChar;
 		ifstream file(fullImportName);
-		wcout << "Opening " << fullImportName << endl;
+		wcout << endl << "Opening " << fullImportName << endl;
 		// Read in obj file
 		if (file) {
 			while (file) {
@@ -82,12 +79,19 @@ void RectConvert(wstring dir) {
 			file.close();
 		} // if(file)
 
-		// Export collision
-		ofstream outputFile(fullExportName);
-		mapName = "tempMap";
+		
+
+
+		/// EXPORT SECTION
+		wstring fullExportName = dir + StripExtension(s) + exportExtension;
+		wstring mapName;
+		wofstream outputFile(fullExportName);
+		wcout << "Exporting " << fullExportName;
+		mapName = StripExtension(s);
 		numOfRects = pos.size() / 4;
-		bool printWH = false;
-		bool printRB = true;
+		bool printWH = false;	// For Width Height boxes
+		bool printRB = true;	// For Right Bottom boxes
+
 
 		outputFile << mapName << " " << numOfRects << endl;
 		float left, top, right, bottom, width, height;
@@ -118,6 +122,7 @@ void RectConvert(wstring dir) {
 
 }
 
+/// Loading Function Verification, actual load is in the game 
 void RectLoad() {
 
 
