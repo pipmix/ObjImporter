@@ -32,18 +32,15 @@ void get_all_files_names_within_folder(wstring folder){
 
 	if (!slim) {
 
-		for (int i = 0; i < names.size(); i++) {
-		wcout << names[i] << endl;
+			for (int i = 0; i < names.size(); i++) {
+			wcout << names[i] << endl;
 
+			}
+			for (int i = 0; i < folders.size(); i++) {
+			//wcout << folders[i] << endl;
+
+			}
 	}
-	for (int i = 0; i < folders.size(); i++) {
-	//wcout << folders[i] << endl;
-
-	}
-
-
-	}
-
 
 }
 

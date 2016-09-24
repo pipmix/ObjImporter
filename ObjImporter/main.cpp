@@ -1,3 +1,4 @@
+#include "Utility.h"
 #include "RectConvert.h"
 #include "ObjToMesh.h"
 wstring gCurImportDirectory = L"C:/Box/Box Sync/Data/Exporters/BoxCollision/";
@@ -34,9 +35,18 @@ int main() {
 	/// ObjToMesh.h  /// convert all .obj to .mesh 
 	//ConvertAllObjInDirectory(direct);
 
-	wstring directory;
+	wstring directory = GetProgramFolder();
+	GetFileNamesFromAFolder(directory);
+	GetFileNamesOfTypeWithExt(L"obj");
+	//RectConvert(directory);
+
+	PrintVector(goodNames);
+
+	for (auto s : goodNames)wcout << StripExtension(s) << endl;
 
 
+	wstring inpu;
+	wcin >> inpu;
 
 	return 0;
 }
