@@ -1,9 +1,6 @@
 #pragma once
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <DirectXMath.h>
+#include "Headers.h"
+
 using namespace std;
 using namespace DirectX;
 
@@ -15,8 +12,23 @@ extern wstring gCurExportDirectory;
 extern wstring gCurExportFileName;
 extern wstring gCurExportFileExt;
 
+extern vector<wstring> names;
+extern vector<wstring> folders;
+extern vector<wstring> goodNames;
+
+
+
+
+
+
+
+
+
 
 void RectConvert() {
+
+	//	importFileName = goodNames[i];
+	//fullImportName = fileDirectory + importFileName + importfileType;
 
 	wchar_t curChar;
 
@@ -76,13 +88,17 @@ void RectConvert() {
 	ofstream outputFile(exportCompletePathAndName);
 	mapName = "tempMap";
 	numOfRects = pos.size() / 4;
-	bool printWH = true;
-	bool printRB = false;
+	bool printWH = false;
+	bool printRB = true;
 
 	outputFile << mapName << " " << numOfRects << endl;
 	float left, top, right, bottom, width, height;
 
 	for (int i = 0; i < pos.size(); i += 4) {
+		//left = [0].x
+		//top = [3].y
+		//right = [2].x
+		//bottom = [0].y
 		bottom	=	pos[i + 0].y;
 		left	=	pos[i + 0].x;
 		top		=	pos[i + 3].y;
